@@ -14,4 +14,4 @@ Watch this video to understand the concept of PID better https://www.youtube.com
 ## How to run the code ?
 1. `pip install -r requirements_pip.txt`
 2. Connect the tello drone from your system 
-3. `python run.py`
+3. `python main.py`
