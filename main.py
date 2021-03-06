@@ -1,4 +1,4 @@
-from drone import MyDrone, cv2
+from drone1 import MyDrone, cv2
 import calendar
 import time
 
@@ -14,14 +14,16 @@ def main():
     gmt = time.gmtime()
     ts = calendar.timegm(gmt)
     filenm = str(ts) + '.avi'
-    out = cv2.VideoWriter(filenm, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 20, (w, h))
+    out = cv2.VideoWriter(filenm, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 15, (w, h))
 
     while True:
         if start_flight == 0:
             drone.takeoff()
             start_flight = 1
+            #drone.move_up(100)
         img = drone.get_fame(w, h)
         img, info = drone.detect_face(img)
+        print (info)
         p_error, p_up_dwn_error, p_for_back_error = drone.track_face(info, w, h, pid, p_error,
                                                                      p_up_dwn_error,
                                                                      p_for_back_error)
