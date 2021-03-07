@@ -1,4 +1,7 @@
-from drone1 import MyDrone, cv2
+from drone_haarcascade import MyDrone, cv2
+# from drone_deep_learning import MyDrone, cv2 # Uncomment if you want to use face detection
+# using deep learning
+
 import calendar
 import time
 
@@ -10,7 +13,7 @@ def main():
     p_for_back_error = 0
     pid = [0.5, 0, 0.5]
     w, h = 360, 240
-    start_flight = 1  # Set 1 to not take off
+    start_flight = 0  # Set 1 to not take off
     gmt = time.gmtime()
     ts = calendar.timegm(gmt)
     filenm = str(ts) + '.avi'
@@ -20,7 +23,7 @@ def main():
         if start_flight == 0:
             drone.takeoff()
             start_flight = 1
-            #drone.move_up(100)
+            drone.move('up', 100)
         img = drone.get_fame(w, h)
         img, info = drone.detect_face(img)
         print (info)
