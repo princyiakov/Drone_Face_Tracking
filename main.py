@@ -1,7 +1,4 @@
 from drone_haarcascade import MyDrone, cv2
-# from drone_deep_learning import MyDrone, cv2 # Uncomment if you want to use face detection
-# using deep learning
-
 import calendar
 import time
 
